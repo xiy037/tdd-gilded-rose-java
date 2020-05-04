@@ -17,6 +17,38 @@ public class Product {
   private long originalSellIn;
   private long originalQuality;
 
+  public long getProduceId() {
+    return produceId;
+  }
+
+  public void setProduceId(long produceId) {
+    this.produceId = produceId;
+  }
+
+  public LocalDateTime getStartDate() {
+    return startDate;
+  }
+
+  public void setStartDate(LocalDateTime startDate) {
+    this.startDate = startDate;
+  }
+
+  public long getOriginalSellIn() {
+    return originalSellIn;
+  }
+
+  public void setOriginalSellIn(long originalSellIn) {
+    this.originalSellIn = originalSellIn;
+  }
+
+  public long getOriginalQuality() {
+    return originalQuality;
+  }
+
+  public void setOriginalQuality(long originalQuality) {
+    this.originalQuality = originalQuality;
+  }
+
   public Product(long id, long originalSellIn, long originalQuality, LocalDateTime startDate) {
     this.produceId = id;
     this.originalSellIn = originalSellIn;
@@ -58,6 +90,7 @@ public class Product {
     long quality = this.sellIn > 0 ? (this.originalQuality - daysDiff )
             : (this.originalQuality - this.originalSellIn - Math.abs(this.sellIn) * 2);
     quality = quality < 0 ? 0 : quality;
+    setQuality(quality);
     return quality;
   }
 }

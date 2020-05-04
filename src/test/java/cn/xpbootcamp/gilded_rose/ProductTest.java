@@ -56,7 +56,8 @@ class ProductTest {
   @Test
   public void should_return_zero_quality_when_it_reaches_negative() throws DateException {
     product.calculateSellIn(LocalDateTime.of(2020, 5, 1, 12, 0));
-    long quality = product.calculateQuality();
+    product.calculateQuality();
+    long quality = product.getQuality();
     assertEquals(0, quality);
   }
 
